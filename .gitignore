@@ -1,0 +1,14 @@
+Library/
+Temp/
+*.sln
+*.userprefs
+obj/
+Builds/
+*.csproj
+Build/
+*.suo
+/Backup/
+/Bins/
+/GameResources/
+/Assets/Appodeal/Adapters/*
+/.idea
