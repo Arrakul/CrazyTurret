@@ -121,6 +121,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &504642898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504642899}
+  m_Layer: 0
+  m_Name: EnemyStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &504642899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504642898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2070707686}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654720647
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +359,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782951637}
   m_CullTransparentMesh: 0
+--- !u!1 &1570614790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1570614791}
+  m_Layer: 0
+  m_Name: BulletStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1570614791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570614790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2070707686}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628582084
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +727,7 @@ GameObject:
   - component: {fileID: 2070707686}
   - component: {fileID: 2070707685}
   m_Layer: 0
-  m_Name: GameControler
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,17 +746,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reUse: 1
-  settingsBullet:
-    speed: 10
-    damage: 1
-    Y: 50
-    X: 50
+  bulletStorage: {fileID: 1570614791}
+  enemyStorage: {fileID: 504642899}
   bulletPrefab: {fileID: 3737932941793159455, guid: cdcd5620ecf4282438d378236a371fc9,
     type: 3}
   massEnemyPrefab:
   - {fileID: 3785446421188701145, guid: a1567cfa361547e4d8f80ef19bd687b9, type: 3}
   - {fileID: 1491327063286050573, guid: 6e2eaaed66bf4ea468b70e5c0d05895a, type: 3}
   - {fileID: 2581030863130706808, guid: e17e1c107123ac24b9ee1081377ff577, type: 3}
+  settingsBullet:
+    speed: 10
+    damage: 1
+    Y: 50
+    X: 50
 --- !u!4 &2070707686
 Transform:
   m_ObjectHideFlags: 0
@@ -707,7 +769,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1570614791}
+  - {fileID: 504642899}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
