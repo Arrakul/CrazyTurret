@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 7643571019535709433}
   - component: {fileID: 5931756635344905505}
   - component: {fileID: 4066915876552078356}
-  - component: {fileID: 2166675876152944438}
-  - component: {fileID: 4181008481271036934}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -147,34 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &2166675876152944438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3737932941793159455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab1f29a1a23d024dbc658ac031f6578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   damage: 1
-  damageToSelf: 5
---- !u!114 &4181008481271036934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3737932941793159455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02679bcc4e068443a5b8a577fffc06b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPointLine: {fileID: 0}
-  hitPoints: 1
 --- !u!1 &6180256701226780526
 GameObject:
   m_ObjectHideFlags: 0

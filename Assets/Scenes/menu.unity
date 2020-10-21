@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881844618}
+      - m_Target: {fileID: 2070707685}
         m_MethodName: ReUse
         m_Mode: 1
         m_Arguments:
@@ -440,7 +440,6 @@ GameObject:
   - component: {fileID: 1881844617}
   - component: {fileID: 1881844616}
   - component: {fileID: 1881844615}
-  - component: {fileID: 1881844618}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -513,19 +512,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1881844618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881844614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512885748b267af42bdb9ea8f70d777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reUse: 1
 --- !u!1 &1936551662
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +656,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939584790}
   m_CullTransparentMesh: 0
+--- !u!1 &2070707684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070707686}
+  - component: {fileID: 2070707685}
+  m_Layer: 0
+  m_Name: GameControler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070707685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070707684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4543e0dd91dd6842915d332bae9ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reUse: 1
+  settingsBullet:
+    speed: 10
+    damage: 1
+    Y: 50
+    X: 50
+  bulletPrefab: {fileID: 3737932941793159455, guid: cdcd5620ecf4282438d378236a371fc9,
+    type: 3}
+  massEnemyPrefab:
+  - {fileID: 3785446421188701145, guid: a1567cfa361547e4d8f80ef19bd687b9, type: 3}
+  - {fileID: 1491327063286050573, guid: 6e2eaaed66bf4ea468b70e5c0d05895a, type: 3}
+  - {fileID: 2581030863130706808, guid: e17e1c107123ac24b9ee1081377ff577, type: 3}
+--- !u!4 &2070707686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070707684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2072019108
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +793,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881844618}
+      - m_Target: {fileID: 2070707685}
         m_MethodName: DontReUse
         m_Mode: 1
         m_Arguments:

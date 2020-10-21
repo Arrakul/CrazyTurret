@@ -172,10 +172,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904010672147584003}
-  - component: {fileID: 3200463301124249715}
   - component: {fileID: 1305514542155463870}
-  - component: {fileID: 9146763379612842720}
-  - component: {fileID: 4276164322781754232}
+  - component: {fileID: 11819807168462651}
   m_Layer: 0
   m_Name: HighEnemy
   m_TagString: HighEnemy
@@ -199,20 +197,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3200463301124249715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2581030863130706808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafa7a271b89c314881dda5b5032d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xMin: 0
-  speed: 0
 --- !u!61 &1305514542155463870
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -239,7 +223,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9146763379612842720
+--- !u!114 &11819807168462651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,23 +232,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2581030863130706808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02679bcc4e068443a5b8a577fffc06b, type: 3}
+  m_Script: {fileID: 11500000, guid: ca8abb4583afdbc44ab0f77c90db0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPointLine: {fileID: 4328008857886590965}
+  xMin: 0
+  speed: 0
   hitPoints: 4
---- !u!114 &4276164322781754232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2581030863130706808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0eec44afef65874290b9c1a0d504919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  hitPointLine: {fileID: 4328008857886590965}
 --- !u!1 &5913966083104110256
 GameObject:
   m_ObjectHideFlags: 0

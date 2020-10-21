@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3246968249656965238}
-  - component: {fileID: 1948299004643243014}
   - component: {fileID: 2701585256001491147}
-  - component: {fileID: 5299680268891805333}
-  - component: {fileID: 7888814254715044185}
+  - component: {fileID: 4158248055503235539}
   m_Layer: 0
   m_Name: MidleEnemy
   m_TagString: MidleEnemy
@@ -36,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1948299004643243014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491327063286050573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafa7a271b89c314881dda5b5032d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xMin: 0
-  speed: 0
 --- !u!61 &2701585256001491147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5299680268891805333
+--- !u!114 &4158248055503235539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,23 +69,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491327063286050573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02679bcc4e068443a5b8a577fffc06b, type: 3}
+  m_Script: {fileID: 11500000, guid: ca8abb4583afdbc44ab0f77c90db0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPointLine: {fileID: 825221775728946048}
+  xMin: -30
+  speed: 0
   hitPoints: 3
---- !u!114 &7888814254715044185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491327063286050573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eab3be1ab252464d951ea4822f35ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  hitPointLine: {fileID: 825221775728946048}
 --- !u!1 &3217605332323705882
 GameObject:
   m_ObjectHideFlags: 0
