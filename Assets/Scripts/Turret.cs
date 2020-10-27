@@ -6,12 +6,11 @@ using Random = UnityEngine.Random;
 
 public class Turret : MonoBehaviour
 {
-    public GameObject spawnEnemy;
-    public GameObject bulletPrefab;
+    public SpawnEnemy spawnEnemy;
     public GameObject bulletStorage;
-
-    public Transform firePoint1;
-    public Transform firePoint2;
+    public GameObject bulletPrefab;
+    
+    public Transform[] firePoints;
     
     public float interval;
 
@@ -19,13 +18,13 @@ public class Turret : MonoBehaviour
     
     void Start()
     {
-        if (!GameController.instance.reUse)
+        if (GameController.Instance.reUse)
         {
-            StartCoroutine(DontReUseSpawnBullet());
+            StartCoroutine(ReUseSpawnBullet());
         }
         else
         {
-            StartCoroutine(ReUseSpawnBullet());
+            StartCoroutine(DontReUseSpawnBullet());
         }
     }
 
@@ -40,43 +39,42 @@ public class Turret : MonoBehaviour
         {
             if (countEnemy > 0)
             {
-                var bullet = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-                bullet.transform.parent = bulletStorage.transform;
-                bullet.transform.LookAt(spawnEnemy.transform.GetChild(Random.Range(0, countEnemy)));
-                
-                var bullet2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-                bullet2.transform.parent = bulletStorage.transform;
-                bullet2.transform.LookAt(spawnEnemy.transform.GetChild(Random.Range(0, countEnemy)));
+                for (int i = 0; i < firePoints.Length; i++)
+                {
+                    ToTarget(firePoints[i]);
+                }
             }
 
             yield return new WaitForSeconds(interval);
-            yield return new WaitForFixedUpdate();
+            yield return  new WaitForFixedUpdate();
         }
+    }
+
+    void ToTarget(Transform point)
+    {
+        var bullet = Instantiate(bulletPrefab, point.position, point.rotation);
+        bullet.transform.parent = bulletStorage.transform;
+        bullet.transform.LookAt(spawnEnemy.transform.GetChild(Random.Range(0, countEnemy)));
     }
     
     IEnumerator ReUseSpawnBullet()
     {
         while (true)
         {
-            var childCount = GameController.instance.enemyStorage.childCount;
-            
-            if (GameController.queueBullet.Count > 0 && childCount > 0)
+            int index = Random.Range(0, spawnEnemy.massEnemyPrefab.Length);
+
+            for (int i = 0; i < firePoints.Length; i++)
             {
-                ToTarget(childCount, firePoint1);
-                ToTarget(childCount, firePoint2);
+                var target = PoolManager.GetActiveObject(spawnEnemy.massEnemyPrefab[index].name);
+                var bullet = PoolManager.GetObject(bulletPrefab.name, firePoints[i].position, Quaternion.identity);
+                
+                //bullet.transform.LookAt(spawnEnemy.transform);
+                //bullet.GetComponent<Bullet>().targer = target.transform;
+                bullet.transform.LookAt((target != null)? target.transform : spawnEnemy.transform);
+                bullet.GetComponent<Bullet>().SettingsMove();
             }
 
             yield return new WaitForSeconds(interval);
-            yield return new WaitForFixedUpdate();
         }
-    }
-    
-    private void ToTarget (int childCount, Transform firePoint)
-    {
-        var bullet = GameController.queueBullet.Dequeue();
-        bullet.transform.position = firePoint.position;
-        bullet.transform.parent = GameController.instance.bulletStorage;
-        bullet.transform.LookAt(GameController.instance.enemyStorage.GetChild(Random.Range(0, childCount)));
-        bullet.SetActive(true);
     }
 }

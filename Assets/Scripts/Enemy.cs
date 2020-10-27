@@ -7,15 +7,20 @@ public class Enemy : MonoBehaviour
     const float XMinMove = -30;
     
     public float speed;
-    public int hitPoints; 
+    public int _staticPoint; 
     
     public Transform hitPointLine;
-    private int _staticPoint;
+    private int hitPoints;
 
     private void Start()
     {
-        speed = Random.Range(speed, speed + 3);
-        _staticPoint = hitPoints;
+        speed = Random.Range(speed, speed * speed);
+        hitPoints = _staticPoint;
+    }
+
+    public void RecoveryHP()
+    {
+        hitPoints = _staticPoint;
     }
 
     private void FixedUpdate()
@@ -24,21 +29,15 @@ public class Enemy : MonoBehaviour
         
         if (transform.position.x < XMinMove)
         {
-            if (!GameController.instance.reUse)
+            if (GameController.Instance.reUse)
             {
-                Destroy(gameObject);
+                gameObject.GetComponent<PoolObject>().ReturnToPool();
             }
             else
             {
-                ReturnObjectForPool();
+                Destroy(gameObject);
             }
         }
-    }
-
-    public void ReturnObjectForPool()
-    {
-        GameController.queueEnemy.Enqueue(gameObject);
-        gameObject.SetActive(false);
     }
 
     public void TakeDamage(int amount)
@@ -47,18 +46,17 @@ public class Enemy : MonoBehaviour
 
         if (hitPoints <= 0)
         {
-            if (!GameController.instance.reUse) Destroy(gameObject);
-            else
+            if (GameController.Instance.reUse)
             {
                 if (hitPointLine != null)
                 {
                     hitPointLine.localScale = new Vector3(1, 1, 1);
-                    ReturnObjectForPool();
+                    gameObject.GetComponent<PoolObject>().ReturnToPool();
                 }
-                else
-                {
-                    Destroy(gameObject);
-                }
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
         else if (hitPointLine != null)

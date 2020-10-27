@@ -31,32 +31,25 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
-        if (!GameController.instance.reUse)
+        if (GameController.Instance.reUse)
         {
-            StartCoroutine(DontReUseSpawnEnemys());
+            StartCoroutine(ReUseSpawnEnemys());
         }
         else
         {
-            StartCoroutine(ReUseSpawnEnemys());
+            StartCoroutine(DontReUseSpawnEnemys());
         }
     }
     
     IEnumerator ReUseSpawnEnemys()
     {
-        GameObject enemy = null;
-        
         while (true)
         {
-            if (GameController.queueEnemy.Count > 0)
-            {
-                int y = Random.Range(yMin, yMax);
-
-                enemy = GameController.queueEnemy.Dequeue();
-                enemy.transform.position = new Vector3(transform.position.x, y);
-                enemy.transform.parent = GameController.instance.enemyStorage;
-                enemy.gameObject.SetActive(true);
-            }
-
+            int y = Random.Range(yMin, yMax);
+            int i = Random.Range(0, massEnemyPrefab.Length);
+            var enemy = PoolManager.GetObject(massEnemyPrefab[i].name, new Vector3(transform.position.x, y), Quaternion.identity);
+            enemy.GetComponent<Enemy>().RecoveryHP();
+            
             if (!endlessMode) yield return  new WaitForSeconds(interval);
             yield return  new WaitForFixedUpdate();
         }
@@ -68,7 +61,7 @@ public class SpawnEnemy : MonoBehaviour
         {
             int y = Random.Range(yMin, yMax);
 
-            Instantiate(GameController.instance.massEnemyPrefab[Random.Range(0, massEnemyPrefab.Length)], 
+            Instantiate(massEnemyPrefab[Random.Range(0, massEnemyPrefab.Length)], 
                 new Vector3(transform.position.x, y), Quaternion.identity).transform.parent = transform;
             
             if (!endlessMode) yield return  new WaitForSeconds(interval);
