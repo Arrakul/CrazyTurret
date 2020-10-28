@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         speed = Random.Range(speed, speed * speed);
-        hitPoints = _staticPoint;
+        RecoveryHP();
     }
 
     public void RecoveryHP()
@@ -48,11 +46,8 @@ public class Enemy : MonoBehaviour
         {
             if (GameController.Instance.reUse)
             {
-                if (hitPointLine != null)
-                {
-                    hitPointLine.localScale = new Vector3(1, 1, 1);
-                    gameObject.GetComponent<PoolObject>().ReturnToPool();
-                }
+                hitPointLine.localScale = new Vector3(1, 1, 1);
+                gameObject.GetComponent<PoolObject>().ReturnToPool();
             }
             else
             {

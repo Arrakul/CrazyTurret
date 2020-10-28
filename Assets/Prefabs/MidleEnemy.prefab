@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3246968249656965238}
   - component: {fileID: 2701585256001491147}
   - component: {fileID: 4158248055503235539}
+  - component: {fileID: 3228818507527409537}
   m_Layer: 0
   m_Name: MidleEnemy
   m_TagString: MidleEnemy
@@ -72,10 +73,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8abb4583afdbc44ab0f77c90db0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -30
-  speed: 0
-  hitPoints: 3
+  speed: 1.3
+  _staticPoint: 3
   hitPointLine: {fileID: 825221775728946048}
+--- !u!114 &3228818507527409537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491327063286050573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0376c9b21f3d6d84ba9ffcaa4333de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3217605332323705882
 GameObject:
   m_ObjectHideFlags: 0

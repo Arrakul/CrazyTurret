@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,7 +13,6 @@ public class SpawnEnemy : MonoBehaviour
     public bool endlessMode = false;
 
     public GameObject[] massEnemyPrefab;
-    public static Queue<GameObject> queueEnemy;
 
     private void Awake()
     {

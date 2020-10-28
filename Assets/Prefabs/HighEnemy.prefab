@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 1904010672147584003}
   - component: {fileID: 1305514542155463870}
   - component: {fileID: 11819807168462651}
+  - component: {fileID: 5033302938437454231}
   m_Layer: 0
   m_Name: HighEnemy
   m_TagString: HighEnemy
@@ -235,10 +236,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8abb4583afdbc44ab0f77c90db0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: 0
-  speed: 0
-  hitPoints: 4
+  speed: 1
+  _staticPoint: 4
   hitPointLine: {fileID: 4328008857886590965}
+--- !u!114 &5033302938437454231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581030863130706808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0376c9b21f3d6d84ba9ffcaa4333de90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5913966083104110256
 GameObject:
   m_ObjectHideFlags: 0

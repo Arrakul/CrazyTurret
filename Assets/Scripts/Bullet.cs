@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,26 +7,27 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        speed = 10;//GameController.instance.settingsBullet.speed;
-        damage = 1;//GameController.instance.settingsBullet.damage;
-        
-        //GetComponent<Rigidbody2D>().velocity = transform.forward * Random.Range(speed, speed+7);
+        speed = GameController.Instance.settingsBullet.Speed;
+        damage = GameController.Instance.settingsBullet.Damage;
+
         SettingsMove();
     }
 
     public void SettingsMove()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.forward * Random.Range(speed, speed+7);
+        GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
         var rotation = transform.rotation;
         rotation = new Quaternion(rotation.x, 0, rotation.z, rotation.w);
 
         transform.rotation = rotation;
     }
-
-    private void Update()
+    
+    private void FixedUpdate()
     {
-        if ((transform.position.x > 50 || transform.position.x < -50) 
-            || (transform.position.y > 50 || transform.position.y < -50))
+        transform.Translate(new Vector2(1, 0) * (speed * Time.deltaTime), Space.World);
+        
+        if ((transform.position.x > GameController.Instance.settingsBullet.X || transform.position.x < -GameController.Instance.settingsBullet.X) 
+            || (transform.position.y > GameController.Instance.settingsBullet.Y || transform.position.y < -GameController.Instance.settingsBullet.Y))
         {
             ReturnObjectForPool();
         }
